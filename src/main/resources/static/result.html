@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result - Adaptive Assessment</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/result.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🎯 Adaptive Assessment</h2>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="btn btn-outline">Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="result-container">
+        <div class="container">
+            <div class="result-header">
+                <h1>Test Completed! 🎉</h1>
+                <p>Here's how you performed</p>
+            </div>
+
+            <!-- Score Card -->
+            <div class="score-card">
+                <div class="score-circle">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="score-circle-bg" cx="100" cy="100" r="90"></circle>
+                        <circle id="score-circle-progress" class="score-circle-progress" cx="100" cy="100" r="90">
+                        </circle>
+                    </svg>
+                    <div class="score-text">
+                        <span id="accuracy-percent" class="score-value">0%</span>
+                        <small>Accuracy</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Correct Answers</div>
+                        <div id="correct-answers" class="stat-value">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Questions</div>
+                        <div id="total-questions" class="stat-value">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Final Score</div>
+                        <div id="final-score" class="stat-value">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Time Taken</div>
+                        <div id="time-taken" class="stat-value">0s</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Difficulty Breakdown -->
+            <div class="breakdown-section">
+                <h2>Difficulty Breakdown</h2>
+                <div class="breakdown-grid">
+                    <div class="breakdown-card easy-card">
+                        <div class="breakdown-label">Easy Questions</div>
+                        <div id="easy-count" class="breakdown-value">0</div>
+                    </div>
+                    <div class="breakdown-card medium-card">
+                        <div class="breakdown-label">Medium Questions</div>
+                        <div id="medium-count" class="breakdown-value">0</div>
+                    </div>
+                    <div class="breakdown-card hard-card">
+                        <div class="breakdown-label">Hard Questions</div>
+                        <div id="hard-count" class="breakdown-value">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="result-actions">
+                <a href="test.html" class="btn btn-primary btn-lg">Take Another Test</a>
+                <a href="analytics.html" class="btn btn-outline btn-lg">View Detailed Analytics</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/result.js"></script>
+</body>
+
+</html>

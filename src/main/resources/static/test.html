@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Test - Adaptive Assessment</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🎯 Adaptive Assessment</h2>
+            </div>
+            <div class="test-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Questions:</span>
+                    <span id="question-count" class="stat-value">0/20</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-container">
+        <div class="container">
+            <!-- Circular Timer -->
+            <div class="timer-container">
+                <svg class="timer-svg" viewBox="0 0 100 100">
+                    <circle class="timer-circle-bg" cx="50" cy="50" r="45"></circle>
+                    <circle id="timer-circle" class="timer-circle" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="timer-text">
+                    <span id="timer-value">60</span>
+                    <small>seconds</small>
+                </div>
+            </div>
+
+            <!-- Difficulty Meter -->
+            <div class="difficulty-meter">
+                <div class="difficulty-label">Current Difficulty:</div>
+                <div class="difficulty-bar">
+                    <div id="difficulty-indicator" class="difficulty-indicator easy-level"></div>
+                </div>
+                <div class="difficulty-labels">
+                    <span>Easy</span>
+                    <span>Medium</span>
+                    <span>Hard</span>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div id="question-card" class="question-card">
+                <div class="question-header">
+                    <span id="topic-badge" class="topic-badge">Loading...</span>
+                    <span id="difficulty-badge" class="difficulty-badge easy">Easy</span>
+                </div>
+                <div class="question-text" id="question-text">
+                    Loading your first question...
+                </div>
+            </div>
+
+            <!-- Options Grid -->
+            <div id="options-grid" class="options-grid">
+                <!-- Options will be dynamically loaded -->
+            </div>
+
+            <!-- Feedback Message -->
+            <div id="feedback" class="feedback" style="display: none;">
+                <span id="feedback-icon"></span>
+                <span id="feedback-text"></span>
+            </div>
+
+            <!-- Navigation -->
+            <div class="test-actions">
+                <button id="submit-btn" class="btn btn-primary btn-lg" disabled>Submit Answer</button>
+            </div>
+
+            <!-- Loading Overlay -->
+            <div id="loading-overlay" class="loading-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading next question...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>

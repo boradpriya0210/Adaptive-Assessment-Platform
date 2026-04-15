@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question | SE Project Admin</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="fade-in">
+    <nav class="navbar">
+        <div class="nav-content container" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+            <div class="nav-links">
+                <a href="admin.html" class="nav-link"><i class="fa fa-arrow-left"></i> Dashboard</a>
+            </div>
+            <div class="nav-logo gradient-text">Create Question</div>
+            <div class="nav-links">
+                <button id="logout-btn" class="btn btn-secondary">
+                    <i class="fa fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 120px; max-width: 900px;">
+        <div class="glass-panel fade-in-up" style="padding: 50px;">
+            <header style="margin-bottom: 40px; text-align: center;">
+                <h1 style="font-size: 2rem; margin-bottom: 10px;">New Test Item</h1>
+                <p>Define your question parameters and options below.</p>
+            </header>
+
+            <form id="add-question-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <div class="form-group">
+                        <label for="topic">Knowledge Area</label>
+                        <select id="topic" class="form-control" required>
+                            <option value="Aptitude">Aptitude</option>
+                            <option value="Logical Reasoning">Logical Reasoning</option>
+                            <option value="Arrays">Data Structures (Arrays)</option>
+                            <option value="Strings">Data Structures (Strings)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Assigned Difficulty</label>
+                        <select id="difficulty" class="form-control" required>
+                            <option value="EASY">EASY</option>
+                            <option value="MEDIUM">MEDIUM</option>
+                            <option value="HARD">HARD</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <label for="questionText">Question Content</label>
+                    <textarea id="questionText" class="form-control" rows="4" placeholder="Provide the core question text here..." required></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                    <div class="form-group">
+                        <label for="optionA">Option A</label>
+                        <input type="text" id="optionA" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionB">Option B</label>
+                        <input type="text" id="optionB" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionC">Option C</label>
+                        <input type="text" id="optionC" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionD">Option D</label>
+                        <input type="text" id="optionD" class="form-control" required>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div class="form-group" style="flex: 1; margin-right: 30px;">
+                        <label for="correctAnswer">Correct Key</label>
+                        <select id="correctAnswer" class="form-control" required>
+                            <option value="A">Choice A</option>
+                            <option value="B">Choice B</option>
+                            <option value="C">Choice C</option>
+                            <option value="D">Choice D</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="height: 52px; padding: 0 40px; min-width: 250px;">
+                        <i class="fa fa-save"></i> Publish Question
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module">
+        import { utils } from '../js/utils.js';
+        document.getElementById('logout-btn').onclick = () => utils.logout();
+    </script>
+</body>
+</html>

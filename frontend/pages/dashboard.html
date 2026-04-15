@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Adaptive Test System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="fade-in">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="gradient-text">ADAPTIVE</span>TEST
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link active">
+                    <i class="fa fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="test.html" class="sidebar-link">
+                    <i class="fa fa-play-circle"></i>
+                    <span>Start Test</span>
+                </a>
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fa fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="history.html" class="sidebar-link">
+                    <i class="fa fa-history"></i>
+                    <span>History</span>
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+                <a href="#" id="logout-btn" class="sidebar-link">
+                    <i class="fa fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <div>
+                    <h1 id="welcome-msg" class="text-2xl font-bold">Welcome back!</h1>
+                    <p id="current-date" class="text-sm">Ready to level up your skills today?</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <div id="user-initials" style="width:44px; height:44px; border-radius:50%; background: linear-gradient(45deg, var(--primary), var(--secondary)); display:flex; align-items:center; justify-content:center; font-weight:700;">U</div>
+                    <div id="user-role-badge" style="padding:6px 10px; border-radius:12px; background: rgba(255,255,255,0.02); color:var(--text-secondary); font-weight:600; font-size:0.85rem; text-transform:uppercase;">USER</div>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <div class="glass-panel hero-card fade-in" style="padding: 30px; margin-bottom: 30px;">
+                <div class="hero-content" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="flex: 1;">
+                        <h2 class="text-xl font-bold mb-2">Your Performance Overview</h2>
+                        <p class="mb-4" id="performance-summary">Calculated based on your recent activity.</p>
+                        <div style="max-width: 300px;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px;">
+                                <span>Mastery Progress</span>
+                                <span id="progress-percent">0%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div id="hero-progress-fill" class="progress-bar-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div id="overall-accuracy" class="text-2xl font-bold gradient-text"
+                            style="font-size: 3.5rem; line-height: 1;">0%</div>
+                        <p class="text-sm">Overall Accuracy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid mb-4">
+                <div class="glass-panel stats-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="stats-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">
+                        <i class="fa fa-clock"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Avg Time / Q</h3>
+                        <div id="avg-time" class="value">0s</div>
+                    </div>
+                </div>
+
+                <div class="glass-panel stats-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="stats-icon" style="background: rgba(34, 197, 94, 0.1); color: var(--success);">
+                        <i class="fa fa-award"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Strengths</h3>
+                        <div id="strengths-count" class="value" style="font-size: 1.2rem;">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="glass-panel stats-card fade-in pulse"
+                    style="animation-delay: 0.3s; border: 1px solid var(--primary-glow);">
+                    <div class="stats-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--primary);">
+                        <i class="fa fa-bolt"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Test Streak</h3>
+                        <div id="streak-count" class="value">3 Days</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-bottom-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                <!-- Chart Panel -->
+                <div class="glass-panel fade-in" style="padding: 25px; animation-delay: 0.4s;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 class="font-bold">Topic Accuracy Breakdown</h3>
+                        <select class="form-control" style="width: auto; padding: 5px 10px; font-size: 0.8rem;">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                        </select>
+                    </div>
+                    <div style="height: 300px;">
+                        <canvas id="topicChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Focus Areas -->
+                <div class="glass-panel fade-in" style="padding: 25px; animation-delay: 0.5s;">
+                    <h3 class="font-bold mb-4">Focus Areas</h3>
+                    <p class="text-sm mb-4">Priority topics to improve your score:</p>
+                    <div id="weak-topics-list" style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Dynamically populated -->
+                        <div
+                            style="padding: 15px; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+                            <i class="fa fa-spinner fa-spin mb-2"></i>
+                            <p>Analyzing performance...</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <a href="test.html" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Practice Now <i class="fa fa-arrow-right" style="margin-left: 8px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/dashboard.js"></script>
+</body>
+
+</html>

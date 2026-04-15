@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Adaptive Assessment</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>🎯 Adaptive Assessment</h2>
+            </div>
+            <div class="nav-links">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div id="user-initials" style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background: linear-gradient(45deg, #4f46e5, #ec4899); color: white; font-weight:700; margin-right:8px;">U</div>
+                <span id="user-name" class="user-greeting"></span>
+                <button onclick="logout()" class="btn btn-outline">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="welcome-section">
+                <h1>Welcome to Your Dashboard</h1>
+                <p>Track your progress, start new tests, and analyze your performance</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Start Test Card -->
+                <div class="dashboard-card featured-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Start New Test</h3>
+                    <p>Begin a new adaptive assessment with 20 questions</p>
+                    <a href="test.html" class="btn btn-primary btn-lg">Start Test</a>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="dashboard-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Your Stats</h3>
+                    <div class="stats-list">
+                        <div class="stat-row">
+                            <span>Tests Taken:</span>
+                            <strong id="total-tests">0</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Average Score:</span>
+                            <strong id="avg-score">0%</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Best Performance:</span>
+                            <strong id="best-score">0%</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Card -->
+                <div class="dashboard-card">
+                    <div class="card-icon">📈</div>
+                    <h3>Performance Analytics</h3>
+                    <p>View detailed insights about your strengths and weak areas</p>
+                    <a href="analytics.html" class="btn btn-outline">View Analytics</a>
+                </div>
+            </div>
+
+            <!-- Recent Tests Section -->
+            <div class="recent-tests">
+                <h2>Recent Test Results</h2>
+                <div id="recent-tests-list" class="tests-list">
+                    <p class="empty-state">No tests taken yet. Start your first test to see results here!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Adaptive Assessment Platform. Built for Interview Excellence.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

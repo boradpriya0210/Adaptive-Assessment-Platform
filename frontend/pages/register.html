@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Adaptive Test System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="glass-panel auth-card fade-in">
+            <div class="auth-header" style="text-align: center; margin-bottom: 30px;">
+                <h1 style="font-size: 2.2rem; margin-bottom: 8px;">Get Started</h1>
+                <p>Create your account for personalized tests</p>
+            </div>
+            
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <div style="position: relative;">
+                        <i class="fa fa-user" style="position: absolute; left: 16px; top: 16px; color: var(--text-secondary);"></i>
+                        <input type="text" id="name" placeholder="John Doe" style="padding-left: 48px;" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div style="position: relative;">
+                        <i class="fa fa-envelope" style="position: absolute; left: 16px; top: 16px; color: var(--text-secondary);"></i>
+                        <input type="email" id="email" placeholder="name@company.com" style="padding-left: 48px;" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div style="position: relative;">
+                        <i class="fa fa-lock" style="position: absolute; left: 16px; top: 16px; color: var(--text-secondary);"></i>
+                        <input type="password" id="password" placeholder="••••••••" style="padding-left: 48px;" minlength="6" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; height: 50px; margin-top: 10px;">
+                    Create Account <i class="fa fa-user-plus"></i>
+                </button>
+            </form>
+
+            <div style="margin-top: 30px; text-align: center; font-size: 0.95rem;">
+                <span style="color: var(--text-secondary);">Already have an account?</span>
+                <a href="login.html" class="nav-link" style="color: var(--primary); font-weight: 600; margin-left: 5px;">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

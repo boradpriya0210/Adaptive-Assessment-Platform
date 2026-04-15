@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result | Adaptive Test System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar glass-panel">
+        <div class="nav-logo">ADAPTIVE<span style="color: var(--primary);">TEST</span></div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <main style="padding: 120px 20px 40px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;">
+        <div class="glass-panel fade-in" style="width: 100%; max-width: 900px; padding: 50px; text-align: center;">
+            <div style="margin-bottom: 40px;">
+                <h1 style="font-size: 3rem; margin-bottom: 8px;">Test Complete!</h1>
+                <p>Here is your adaptive assessment breakdown</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                <!-- Accuracy Circle -->
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="position: relative; width: 140px; height: 140px; margin-bottom: 16px;">
+                        <svg viewBox="0 0 100 100" style="transform: rotate(-90deg); width: 100%; height: 100%;">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"></circle>
+                            <circle id="accuracy-ring" cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="283" stroke-linecap="round" style="transition: stroke-dashoffset 1.5s ease-out;"></circle>
+                        </svg>
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span id="accuracy-text" style="font-size: 1.8rem; font-weight: 700;">0%</span>
+                        </div>
+                    </div>
+                    <p style="font-weight: 600;">Overall Accuracy</p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px; text-align: left;">
+                    <div class="glass-panel" style="padding: 12px 20px; display: flex; justify-content: space-between; border-left: 4px solid var(--primary);">
+                        <span>Total Score</span>
+                        <span id="final-score" style="font-weight: 700;">0/100</span>
+                    </div>
+                    <div class="glass-panel" style="padding: 12px 20px; display: flex; justify-content: space-between; border-left: 4px solid var(--success);">
+                        <span>Correct Answers</span>
+                        <span id="correct-count" style="font-weight: 700;">0/0</span>
+                    </div>
+                    <div class="glass-panel" style="padding: 12px 20px; display: flex; justify-content: space-between; border-left: 4px solid var(--warning);">
+                        <span>Total Time</span>
+                        <span id="total-time" style="font-weight: 700;">0s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 50px;">
+                <h3 style="margin-bottom: 24px; text-align: left;">Question Breakdown</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                    <div class="glass-panel" style="padding: 20px;">
+                        <span class="difficulty-badge difficulty-easy">Easy</span>
+                        <h2 id="easy-questions" style="margin-top: 12px;">0</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 20px;">
+                        <span class="difficulty-badge difficulty-medium">Medium</span>
+                        <h2 id="medium-questions" style="margin-top: 12px;">0</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 20px;">
+                        <span class="difficulty-badge difficulty-hard">Hard</span>
+                        <h2 id="hard-questions" style="margin-top: 12px;">0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="dashboard.html" class="btn btn-secondary" style="padding: 14px 40px;">
+                    Back to Dashboard
+                </a>
+                <a href="test.html" class="btn btn-primary" style="padding: 14px 40px;">
+                    Try Another Test
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../js/result.js"></script>
+</body>
+</html>

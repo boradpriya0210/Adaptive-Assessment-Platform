@@ -1,0 +1,184 @@
+.result-container {
+    padding: 3rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.result-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-header p {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+}
+
+.score-card {
+    max-width: 400px;
+    margin: 0 auto 3rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+}
+
+.score-circle {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.score-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.score-circle-bg {
+    fill: none;
+    stroke: var(--bg-tertiary);
+    stroke-width: 12;
+}
+
+.score-circle-progress {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 565;
+    stroke-dashoffset: 565;
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.score-value {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.score-text small {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.breakdown-section {
+    margin-bottom: 3rem;
+}
+
+.breakdown-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.breakdown-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.easy-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+    border: 1px solid var(--easy-color);
+}
+
+.medium-card {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1));
+    border: 1px solid var(--medium-color);
+}
+
+.hard-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.1));
+    border: 1px solid var(--hard-color);
+}
+
+.breakdown-label {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.breakdown-value {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.easy-card .breakdown-value {
+    color: var(--easy-color);
+}
+
+.medium-card .breakdown-value {
+    color: var(--medium-color);
+}
+
+.hard-card .breakdown-value {
+    color: var(--hard-color);
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .result-actions {
+        flex-direction: column;
+    }
+}
