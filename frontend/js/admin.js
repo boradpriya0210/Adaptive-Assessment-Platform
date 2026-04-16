@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.success) {
                 currentQuestions = data.data;
                 populateTopicFilter(currentQuestions);
-                renderQuestions(currentQuestions);
+                handleFilter(); // Use handleFilter to preserve current search/topic context
             }
         } catch (err) {
             console.error('Questions fetch error:', err);
@@ -347,8 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tbody.innerHTML = questions.map(q => `
             <tr>
                 <td>${q.topic}</td>
-                <td><span class="badge badge-${q.difficulty.toLowerCase()}">${q.difficulty}</span></td>
-                <td title="${q.questionText}">${q.questionText.substring(0, 60)}${q.questionText.length > 60 ? '...' : ''}</td>
+                <td><span class="badge badge-${(q.difficulty || 'easy').toLowerCase()}">${q.difficulty}</span></td>
+                <td title="${q.questionText || ''}">${(q.questionText || '').substring(0, 60)}${(q.questionText || '').length > 60 ? '...' : ''}</td>
                 <td>
                     <div class="actions">
                         <button class="btn btn-secondary btn-icon edit-btn" data-id="${q.questionId}">
@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${u.name}</td>
                 <td>${u.email}</td>
                 <td><span class="badge" style="background: rgba(255,255,255,0.05);">${u.role}</span></td>
-                <td>${u.userId.substring(0, 8)}...</td>
+                <td>${u.createdAt ? utils.formatDate(u.createdAt) : 'N/A'}</td>
             </tr>
         `).join('') || '<tr><td colspan="4" style="text-align: center;">No users found.</td></tr>';
     }

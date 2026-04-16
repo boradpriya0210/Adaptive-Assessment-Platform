@@ -5,6 +5,7 @@ import com.job.JOB.entity.Question;
 import com.job.JOB.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,6 +49,7 @@ public class QuestionService {
                 .orElseThrow(() -> new RuntimeException("Question not found with ID: " + questionId));
     }
 
+    @Transactional
     public Question createQuestion(Question question) {
         return questionRepository.save(question);
     }
@@ -56,22 +58,28 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
+    @Transactional
     public Question updateQuestion(String id, Question questionDetails) {
         Question question = getQuestionById(id);
-        question.setTopic(questionDetails.getTopic());
-        question.setDifficulty(questionDetails.getDifficulty());
-        question.setQuestionText(questionDetails.getQuestionText());
-        question.setOptionA(questionDetails.getOptionA());
-        question.setOptionB(questionDetails.getOptionB());
-        question.setOptionC(questionDetails.getOptionC());
-        question.setOptionD(questionDetails.getOptionD());
-        question.setCorrectAnswer(questionDetails.getCorrectAnswer());
+        
+        if (questionDetails.getTopic() != null) question.setTopic(questionDetails.getTopic());
+        if (questionDetails.getDifficulty() != null) question.setDifficulty(questionDetails.getDifficulty());
+        if (questionDetails.getQuestionText() != null) question.setQuestionText(questionDetails.getQuestionText());
+        if (questionDetails.getOptionA() != null) question.setOptionA(questionDetails.getOptionA());
+        if (questionDetails.getOptionB() != null) question.setOptionB(questionDetails.getOptionB());
+        if (questionDetails.getOptionC() != null) question.setOptionC(questionDetails.getOptionC());
+        if (questionDetails.getOptionD() != null) question.setOptionD(questionDetails.getOptionD());
+        if (questionDetails.getCorrectAnswer() != null) question.setCorrectAnswer(questionDetails.getCorrectAnswer());
+        
         return questionRepository.save(question);
     }
 
+    @Transactional
     public void deleteQuestion(String id) {
-        Question question = getQuestionById(id);
-        questionRepository.delete(question);
+        if (!questionRepository.existsById(id)) {
+            throw new RuntimeException("Question not found with ID: " + id);
+        }
+        questionRepository.deleteById(id);
     }
 
 
